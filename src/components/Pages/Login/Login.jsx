@@ -3,6 +3,7 @@ import googleLogin from '../../../assets/images/google-btn.png';
 import githubLogin from '../../../assets/images/github-btn.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import LoginWithSocial from './LoginWithSocial';
 
 const Login = () => {
     const [success, setSuccess] = useState('');
@@ -53,10 +54,7 @@ const Login = () => {
                 <div className="flex flex-col w-full">
                     <div className="divider"> OR </div>
                 </div>
-                <div className='flex gap-2 w-52 flex-col mx-auto'>
-                    <img className='cursor-pointer' src={googleLogin} alt="" />
-                    <img className='cursor-pointer' src={githubLogin} alt="" />
-                </div>
+                <LoginWithSocial />
             </form>
         </div>
     );
