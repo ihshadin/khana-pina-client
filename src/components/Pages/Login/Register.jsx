@@ -24,6 +24,9 @@ const Register = () => {
         if (!/(?=.*[A-Z])/.test(password)) {
             setError('Please input at least one uppper latter');
             return;
+        } else if (password.length < 6) {
+            setError('Password should be at least 6 characters')
+            return;
         }
 
         createUser(email, password)
