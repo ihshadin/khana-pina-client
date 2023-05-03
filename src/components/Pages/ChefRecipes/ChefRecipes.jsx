@@ -24,7 +24,8 @@ const ChefRecipes = () => {
             </section>
             <section className='py-12'>
                 <div className='px-3 xl:px-0 xl:container mx-auto'>
-                    <div className='grid md:grid-cols-3 gap-6'>
+                    <h2 className='mb-7 text-3xl font-bold text-center'>Recipes</h2>
+                    <div className='grid md:grid-cols-3 gap-7'>
                         {
                             recipes.map((recipe, i) => <RecipeCard key={i} recipe={recipe} />)
                         }

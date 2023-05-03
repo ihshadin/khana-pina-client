@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './components/Pages/Home/Home'
@@ -10,6 +9,7 @@ import AuthProvider from './components/providers/AuthProvider'
 import Login from './components/Pages/Login/Login'
 import Register from './components/Pages/Login/register'
 import ChefRecipes from './components/Pages/ChefRecipes/ChefRecipes'
+import '@smastrom/react-rating/style.css'
 
 const router = createBrowserRouter([
   {
