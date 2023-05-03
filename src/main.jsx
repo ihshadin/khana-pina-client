@@ -29,22 +29,16 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
+        path: 'chef-recipes/:id',
+        element: <ChefRecipes />,
+        loader: ({ params }) => fetch(`https://khana-pina-server-ihshadin.vercel.app/chef/${params.id}`)
+      },
+      {
         path: '*',
         element: <ErrorPage />,
       },
     ]
   },
-  {
-    path: 'chef-recipes',
-    element: <MainLayouts />,
-    children: [
-      {
-        path: ':id',
-        element: <ChefRecipes />,
-        loader: ({ params }) => fetch(`https://khana-pina-server-ihshadin.vercel.app/chefs${params.id}`)
-      }
-    ]
-  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
