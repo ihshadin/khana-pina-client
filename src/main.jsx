@@ -9,6 +9,7 @@ import ErrorPage from './components/Pages/ErrorPage/ErrorPage'
 import AuthProvider from './components/providers/AuthProvider'
 import Login from './components/Pages/Login/Login'
 import Register from './components/Pages/Login/register'
+import ChefRecipes from './components/Pages/ChefRecipes/ChefRecipes'
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />,
+        element: <Home />
       },
       {
         path: 'login',
@@ -30,9 +31,20 @@ const router = createBrowserRouter([
       {
         path: '*',
         element: <ErrorPage />,
-      }
+      },
     ]
   },
+  {
+    path: 'chef-recipes',
+    element: <MainLayouts />,
+    children: [
+      {
+        path: ':id',
+        element: <ChefRecipes />,
+        loader: ({ params }) => fetch(`https://khana-pina-server-ihshadin.vercel.app/chefs${params.id}`)
+      }
+    ]
+  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

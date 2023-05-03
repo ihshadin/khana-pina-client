@@ -11,6 +11,9 @@ const AuthProvider = ({ children }) => {
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
+    // chefs
+    const [chefs, setChefs] = useState([]);
+
     // Create User
     const createUser = (email, password) => {
         setLoading(true);
@@ -46,9 +49,17 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
+    useEffect(() => {
+        fetch('https://khana-pina-server-ihshadin.vercel.app/chefs')
+            .then(res => res.json())
+            .then(data => setChefs(data))
+            .catch(error => console.error(error))
+    }, [])
+
     const authInfo = {
         user,
         loading,
+        chefs,
         setUser,
         setUser,
         createUser,

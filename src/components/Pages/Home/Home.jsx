@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import bgImg from '../../../assets/images/12-3.jpg'
+import { useLoaderData } from 'react-router-dom';
+import ChefsCard from '../ChefsCard/ChefsCard';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Home = () => {
+    const { chefs } = useContext(AuthContext);
+    console.log(chefs);
     return (
         <>
             <div style={{ backgroundImage: `url(${bgImg})`, backgroundSize: 'cover', backgroundPosition: 'center center' }}>
@@ -14,44 +19,82 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <section className='py-10'>
+            <section className='py-12'>
                 <div className='px-3 xl:px-0 xl:container mx-auto'>
                     <h2 className='mb-7 text-3xl font-bold text-center'>Chefs in Khanapina</h2>
                     <div className='grid md:grid-cols-3 gap-6'>
-                        <div className='shadow-lg rounded-lg'>
-                            <img className='rounded-lg' src="https://cdn.pixabay.com/photo/2013/10/09/02/27/lake-192990__340.jpg" alt="" />
-                            <div className='p-4'>
-                                <h2 className='text-2xl font-semibold'>Mohammad Ali</h2>
-                                <p className='text-zinc-500'><span className='font-semibold text-[#ffa200]'>5</span> Years of experience</p>
-                                <p className='text-zinc-500'><span className='font-semibold text-[#ffa200]'>340</span> Likes</p>
-                                <p className='text-zinc-500'><span className='font-semibold text-[#ffa200]'>3</span> Recipes</p>
-                                <button className='mt-3 py-2 px-5 bg-[#ffa200] ms-auto block font-medium text-white'>Views Recipes</button>
-                            </div>
+                        {
+                            chefs.map(chef => <ChefsCard key={chef.id} chef={chef} />)
+                        }
+                    </div>
+                </div>
+            </section>
+            <section className='py-12 bg-red-50'>
+                <div className='px-3 xl:px-0 xl:container mx-auto'>
+                    <h2 className='mb-7 text-3xl font-bold text-center'>Our Recipes</h2>
+                    <div className='grid grid-cols-1 md:grid-cols-6 gap-6'>
+                        <div className='flex flex-col items-center'>
+                            <img className='rounded-full w-32 h-32 object-cover block' src='https://images.squarespace-cdn.com/content/v1/5ea5f3913b0ccf06d0ec2563/1647632824420-2U3SJU6ZYW3L8DJQE9GW/Pohela+Boishakh+2021+-+The+Spice+Odyssey+%2850%29.jpg?format=2500w' alt="" />
+                            <h2 className='text-xl font-semibold mt-5 text-center'>Shorshe Ilish</h2>
                         </div>
-                        <div>
-                            <img src="https://cdn.pixabay.com/photo/2013/10/09/02/27/lake-192990__340.jpg" alt="" />
-                            <h2>Mohammad Ali</h2>
-                            <p><span>5</span> Years of experience</p>
-                            <p><span>3</span> Recipes</p>
-                            <p><span>340</span> Likes</p>
-                            <button>Views Recipes</button>
+                        <div className='flex flex-col items-center'>
+                            <img className='rounded-full w-32 h-32 object-cover block' src='https://www.deccanherald.com/sites/dh/files/articleimages/2022/02/19/download-8-1083076-1645264567.png' alt="" />
+                            <h2 className='text-xl font-semibold mt-5 text-center'>Pitha</h2>
                         </div>
-                        <div>
-                            <img src="https://cdn.pixabay.com/photo/2013/10/09/02/27/lake-192990__340.jpg" alt="" />
-                            <h2>Mohammad Ali</h2>
-                            <p><span>5</span> Years of experience</p>
-                            <p><span>3</span> Recipes</p>
-                            <p><span>340</span> Likes</p>
-                            <button>Views Recipes</button>
+                        <div className='flex flex-col items-center'>
+                            <img className='rounded-full w-32 h-32 object-cover block' src='https://www.easycookingwithmolly.com/wp-content/uploads/2015/09/Chingri-Malai-Curry-1-480x480.jpg' alt="" />
+                            <h2 className='text-xl font-semibold mt-5 text-center'>Chingri Malai Curry</h2>
                         </div>
-                        <div>
-                            <img src="https://cdn.pixabay.com/photo/2013/10/09/02/27/lake-192990__340.jpg" alt="" />
-                            <h2>Mohammad Ali</h2>
-                            <p><span>5</span> Years of experience</p>
-                            <p><span>3</span> Recipes</p>
-                            <p><span>340</span> Likes</p>
-                            <button>Views Recipes</button>
+                        <div className='flex flex-col items-center'>
+                            <img className='rounded-full w-32 h-32 object-cover block' src='https://rumkisgoldenspoon.com/wp-content/uploads/2021/05/Bhuna-khichuri-recipe.jpg' alt="" />
+                            <h2 className='text-xl font-semibold mt-5 text-center'>Bhuna Khichuri</h2>
                         </div>
+                        <div className='flex flex-col items-center'>
+                            <img className='rounded-full w-32 h-32 object-cover block' src='https://s3-ap-south-1.amazonaws.com/betterbutterbucket-silver/chanda-shally2018030100142324_thumb.jpeg' alt="" />
+                            <h2 className='text-xl font-semibold mt-5 text-center'>Chitol Maacher Muitha</h2>
+                        </div>
+                        <div className='flex flex-col items-center'>
+                            <img className='rounded-full w-32 h-32 object-cover block' src='https://www.deshcatering.com/wp-content/uploads/2020/06/morog-polao-jali-kabab.jpg' alt="" />
+                            <h2 className='text-xl font-semibold mt-5 text-center'>Morog Polao</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section className='py-12'>
+                <div className='px-3 xl:px-0 xl:container mx-auto grid md:grid-cols-2 items-center'>
+                    <div>
+                        <img className='w-full' src="https://thumbs.dreamstime.com/b/contact-us-23141986.jpg" alt="" />
+                    </div>
+                    <div>
+                        <div className='mb-3'>
+                            <label htmlFor="name" className='block font-medium mb-1'>Your Name</label>
+                            <input type="text" name="name" id="name" className='block w-full bg-teal-100 px-3 py-2 rounded-md' required />
+                        </div>
+                        <div className='mb-3'>
+                            <label htmlFor="contact_email" className='block font-medium mb-1'>Your Email Address</label>
+                            <input type="email" name="contact_email" id="contact_email" className='block w-full bg-teal-100 px-3 py-2 rounded-md' required />
+                        </div>
+                        <div className='mb-3'>
+                            <label htmlFor="contact_subject" className='block font-medium mb-1'>Subject</label>
+                            <input type="text" name="contact_subject" id="contact_subject" className='block w-full bg-teal-100 px-3 py-2 rounded-md' required />
+                        </div>
+                        <div className='mb-3'>
+                            <label htmlFor="contact_message" className='block font-medium mb-1'>Message</label>
+                            <textarea name="contact_message" id="contact_message" cols="1" rows="5" className='block w-full bg-teal-100 px-3 py-2 rounded-md'></textarea>
+                        </div>
+                        <button className='block w-full py-3 bg-[#ffa200] mt-3 text-white font-semibold uppercase'>Send</button>
+                    </div>
+                </div>
+            </section>
+            <section className='py-12 bg-[#ffa200]'>
+                <div className='px-3 xl:px-0 xl:container mx-auto grid md:grid-cols-2 gap-5 md:gap-0'>
+                    <div className='basis'>
+                        <h2 className='uppercase font-extrabold text-2xl'>Let's stay in touch</h2>
+                        <p className='text-sm'>Sign up today to receive the latest offers and information!</p>
+                    </div>
+                    <div className='flex flex-col md:flex-row items-start md:items-center gap-2'>
+                        <input className='basis-5/6 bg-[#ffce78] rounded-full py-2 px-4' type="email" name="email" id="email" />
+                        <button className='basis-1/6 py-2 px-4 bg-black rounded-full text-white font-bold' type="submit">Subscribe</button>
                     </div>
                 </div>
             </section>
