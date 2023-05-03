@@ -1,13 +1,12 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import RecipeCard from './RecipeCard';
 
 const ChefRecipes = () => {
     const { id } = useParams();
     const chef = useLoaderData();
 
     const { chef_picture, chef_name, description, likes, recipes, years_of_experience } = chef;
-    const { recipe_name, ingredients, cooking_method, rating } = recipes;
-
 
     return (
         <>
@@ -27,7 +26,7 @@ const ChefRecipes = () => {
                 <div className='px-3 xl:px-0 xl:container mx-auto'>
                     <div className='grid md:grid-cols-3 gap-6'>
                         {
-                            recipes.map(recipe => <p>shadin</p>)
+                            recipes.map((recipe, i) => <RecipeCard key={i} recipe={recipe} />)
                         }
                     </div>
                 </div>
