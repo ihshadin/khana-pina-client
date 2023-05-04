@@ -12,6 +12,7 @@ import ChefRecipes from './components/Pages/ChefRecipes/ChefRecipes'
 import '@smastrom/react-rating/style.css'
 import { Toaster } from 'react-hot-toast'
 import Blog from './components/Pages/Blog/Blog'
+import PrivateRoutes from './components/routes/PrivateRoutes'
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'chef-recipes/:id',
-        element: <ChefRecipes />,
+        element: <PrivateRoutes><ChefRecipes /></PrivateRoutes>,
         loader: ({ params }) => fetch(`https://khana-pina-server-ihshadin.vercel.app/chef/${params.id}`)
       },
       {
