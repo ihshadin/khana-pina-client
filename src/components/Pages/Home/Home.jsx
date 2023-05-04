@@ -5,8 +5,8 @@ import ChefsCard from '../ChefsCard/ChefsCard';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Home = () => {
-    const { chefs } = useContext(AuthContext);
-    console.log(chefs);
+    const { chefs, loading } = useContext(AuthContext);
+
     return (
         <>
             <div style={{ backgroundImage: `url(${bgImg})`, backgroundSize: 'cover', backgroundPosition: 'center center' }}>
@@ -20,13 +20,17 @@ const Home = () => {
                 </div>
             </div>
             <section className='py-12'>
-                <div className='px-3 xl:px-0 xl:container mx-auto'>
+                <div className='px-3 xl:px-0 xl:container mx-auto relative'>
                     <h2 className='mb-7 text-3xl font-bold text-center'>Chefs in Khanapina</h2>
-                    <div className='grid md:grid-cols-3 gap-6'>
-                        {
-                            chefs.map(chef => <ChefsCard key={chef.id} chef={chef} />)
-                        }
-                    </div>
+                    {
+                        !loading ?
+                            <div className="radial-progress bg-primary text-primary-content border-4 border-primary absolute start-1/2 -translate-x-1/2" style={{ "--value": 70 }}>70%</div>
+                            : <div className='grid md:grid-cols-3 gap-6'>
+                                {
+                                    chefs.map(chef => <ChefsCard key={chef.id} chef={chef} />)
+                                }
+                            </div>
+                    }
                 </div>
             </section>
             <section className='py-12 bg-red-50'>

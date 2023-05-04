@@ -10,6 +10,7 @@ import Login from './components/Pages/Login/Login'
 import Register from './components/Pages/Login/register'
 import ChefRecipes from './components/Pages/ChefRecipes/ChefRecipes'
 import '@smastrom/react-rating/style.css'
+import { Toaster } from 'react-hot-toast'
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <RouterProvider router={router}>
       </RouterProvider>
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+      />
     </AuthProvider>
   </React.StrictMode>,
 )

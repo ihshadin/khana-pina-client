@@ -26,10 +26,12 @@ const AuthProvider = ({ children }) => {
     }
 
     const signInWithGoogle = () => {
+        setLoading(true);
         return signInWithPopup(auth, googleProvider)
     }
 
     const signInWithGithub = () => {
+        setLoading(true);
         return signInWithPopup(auth, githubProvider)
     }
 
@@ -41,7 +43,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, loggedUser => {
             setUser(loggedUser);
-            setLoading(false);
+            // setLoading(false);
         })
 
         return () => {
@@ -50,10 +52,17 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     useEffect(() => {
+        setLoading(false);
         fetch('https://khana-pina-server-ihshadin.vercel.app/chefs')
             .then(res => res.json())
-            .then(data => setChefs(data))
-            .catch(error => console.error(error))
+            .then(data => {
+                setChefs(data);
+                setLoading(true);
+            })
+            .catch(error => {
+                setLoading(true)
+                console.error(error);
+            })
     }, [])
 
     const authInfo = {
