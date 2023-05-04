@@ -22,7 +22,6 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-        // loader: ({ params }) => fetch('https://khana-pina-server-ihshadin.vercel.app/chefs')
       },
       {
         path: 'blog',

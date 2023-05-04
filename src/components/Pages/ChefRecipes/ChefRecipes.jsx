@@ -2,12 +2,13 @@ import React, { useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import RecipeCard from './RecipeCard';
 import { AuthContext } from '../../providers/AuthProvider';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 
 const ChefRecipes = () => {
     const { id } = useParams();
     const chef = useLoaderData();
     const { loading } = useContext(AuthContext);
-
     const { chef_picture, chef_name, description, likes, recipes, years_of_experience } = chef;
 
     if (loading) {
@@ -16,8 +17,14 @@ const ChefRecipes = () => {
 
     return (
         <>
+            {/* Chef Banner section */}
             <section className='py-12'>
                 <div className='px-3 xl:px-0 xl:container mx-auto md:flex gap-6 items-center justify-center'>
+                    {/* <LazyLoadImage
+                        src={chef_picture}
+                        className='w-64 h-64 object-cover rounded-full flex-shrink-0'
+                        effect='blur'
+                    /> */}
                     <img className='w-64 h-64 object-cover rounded-full flex-shrink-0' src={chef_picture} alt="" />
                     <div className='mt-8 md:mt-0'>
                         <h2 className='text-4xl font-semibold'>{chef_name}</h2>
@@ -28,6 +35,8 @@ const ChefRecipes = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Chef recipes section area */}
             <section className='py-12'>
                 <div className='px-3 xl:px-0 xl:container mx-auto'>
                     <h2 className='mb-7 text-3xl font-bold text-center'>Recipes</h2>

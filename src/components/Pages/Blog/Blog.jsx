@@ -13,7 +13,7 @@ const Blog = () => {
                     </p>
                 </div>
                 <div className='bg-slate-100 rounded-2xl py-8 px-6 mb-4'>
-                    <h4 className='text-xl font-semibold text-[#ffa200]'>II. Tell us the How to validate React props using PropTypes</h4>
+                    <h4 className='text-xl font-semibold text-[#ffa200]'>II. How to validate React props using PropTypes</h4>
                     <p>To validate React props using PropTypes.
                         To use PropTypes, I need to import it from the 'prop-types' package and then define the propTypes object in My component. The propTypes object should contain a set of keys, with the name of each key being the name of the prop I want to validate, and the value of each key being the type I want to validate against.</p>
                 </div>

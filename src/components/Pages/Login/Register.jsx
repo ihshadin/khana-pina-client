@@ -60,19 +60,19 @@ const Register = () => {
                 <h4 className='text-xl md:text-2xl font-semibold text-center mb-5'>Please Register an Account</h4>
                 <div className='mb-3'>
                     <label htmlFor="signup_name" className='block font-medium mb-1'>Name</label>
-                    <input type="text" name="signup_name" id="signup_name" className='block w-full bg-teal-100 px-3 py-2 rounded-md' required />
+                    <input type="text" name="signup_name" id="signup_name" className='block w-full bg-teal-100 px-3 py-2 rounded-md' placeholder='Input you name' required />
                 </div>
                 <div className='mb-3'>
                     <label htmlFor="signup_photourl" className='block font-medium mb-1'>Photo URL</label>
-                    <input type="text" name="signup_photo" id="signup_photo" className='block w-full bg-teal-100 px-3 py-2 rounded-md' required />
+                    <input type="text" name="signup_photo" id="signup_photo" className='block w-full bg-teal-100 px-3 py-2 rounded-md' placeholder='Input your photo URL' required />
                 </div>
                 <div className='mb-3'>
                     <label htmlFor="signup_email" className='block font-medium mb-1'>Email Address</label>
-                    <input type="email" name="signup_email" id="signup_email" className='block w-full bg-teal-100 px-3 py-2 rounded-md' required />
+                    <input type="email" name="signup_email" id="signup_email" className='block w-full bg-teal-100 px-3 py-2 rounded-md' placeholder='Input your email address' required />
                 </div>
                 <div className='mb-2'>
                     <label htmlFor="signup_password" className='block font-medium mb-1'>Password</label>
-                    <input type="password" name="signup_password" id="signup_password" className='block w-full bg-teal-100 px-3 py-2 rounded-md' required />
+                    <input type="password" name="signup_password" id="signup_password" className='block w-full bg-teal-100 px-3 py-2 rounded-md' placeholder='Input your password' required />
                 </div>
                 <small className='block text-teal-400'>{success}</small>
                 <small className='block text-red-500'>{error}</small>

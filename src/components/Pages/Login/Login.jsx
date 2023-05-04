@@ -45,11 +45,11 @@ const Login = () => {
                 <h4 className='text-xl md:text-2xl font-semibold text-center mb-5'>Please Sign in your Account</h4>
                 <div className='mb-3'>
                     <label htmlFor="login_email" className='block font-medium mb-1'>Email Address</label>
-                    <input type="email" name="login_email" id="login_email" className='block w-full bg-teal-100 px-3 py-2 rounded-md' required />
+                    <input type="email" name="login_email" id="login_email" className='block w-full bg-teal-100 px-3 py-2 rounded-md' placeholder='Input email address' required />
                 </div>
                 <div className='mb-2'>
                     <label htmlFor="login_password" className='block font-medium mb-1'>Password</label>
-                    <input type="password" name="login_password" id="login_password" className='block w-full bg-teal-100 px-3 py-2 rounded-md' required />
+                    <input type="password" name="login_password" id="login_password" className='block w-full bg-teal-100 px-3 py-2 rounded-md' placeholder='Input Password' required />
                 </div>
                 <small className='block text-teal-500'>{success}</small>
                 <small className='block text-red-500'>{error}</small>

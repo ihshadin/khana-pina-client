@@ -9,7 +9,7 @@ const RecipeCard = ({ recipe }) => {
 
     const handleFavorite = (event) => {
         event.currentTarget.disabled = true;
-        return toast.success('Successfully added in the favorite!');
+        return toast.success('The recipe is your favorite!');
     }
 
     return (
@@ -21,14 +21,15 @@ const RecipeCard = ({ recipe }) => {
             }
             <p className='font-medium mt-2'>Cooking Method:</p>
             <p className='text-sm'>{cooking_method}</p>
-            <span className='mt-3'>
+            <div className='flex items-center mt-3 gap-1'>
                 <Rating
                     style={{ maxWidth: 100 }}
                     readOnly
                     orientation="horizontal"
                     value={rating}
-                /> {rating}
-            </span>
+                />
+                <span>{rating}</span>
+            </div>
             <button onClick={handleFavorite} className='py-2 px-6 bg-[#ffa200] font-semibold text-white mt-3 block w-full absolute bottom-0 left-0 disabled:bg-zinc-600'>Favorite</button>
         </div>
     );

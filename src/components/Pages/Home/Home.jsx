@@ -1,12 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import bgImg from '../../../assets/images/12-3.jpg'
-import { useLoaderData } from 'react-router-dom';
 import ChefsCard from '../ChefsCard/ChefsCard';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Home = () => {
     const { chefs, loading } = useContext(AuthContext);
-    // const chefs = useLoaderData();
 
     return (
         <>
@@ -20,6 +18,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            {/* Chefs Area */}
             <section className='py-12'>
                 <div className='px-3 xl:px-0 xl:container mx-auto relative'>
                     <h2 className='mb-7 text-3xl font-bold text-center'>Chefs in Khanapina</h2>
@@ -34,6 +33,8 @@ const Home = () => {
                     }
                 </div>
             </section>
+
+            {/* Recipes section area */}
             <section className='py-12 bg-red-50'>
                 <div className='px-3 xl:px-0 xl:container mx-auto'>
                     <h2 className='mb-7 text-3xl font-bold text-center'>Our Recipes</h2>
@@ -65,6 +66,8 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Contact section area */}
             <section className='py-12'>
                 <div className='px-3 xl:px-0 xl:container mx-auto grid md:grid-cols-2 items-center'>
                     <div>
@@ -91,6 +94,8 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Subscribe section area */}
             <section className='py-12 bg-[#ffa200]'>
                 <div className='px-3 xl:px-0 xl:container mx-auto grid md:grid-cols-2 gap-5 md:gap-0'>
                     <div className='basis'>

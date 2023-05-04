@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import logo from '../../../public/logo.png'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { TfiAlignRight, TfiAngleDoubleRight } from "react-icons/tfi";
 import { AuthContext } from '../providers/AuthProvider';
 
@@ -16,7 +16,7 @@ const Header = () => {
         <header className='flex items-center justify-between py-5 px-3 xl:px-0 xl:container mx-auto relative'>
             <div>
                 {/* <img className='w-36' src={logo} alt="" /> */}
-                <h1 className='font-bold text-2xl text-[#2a2a2e]'>Khana<span className='text-[#ffa200]'>Pina</span></h1>
+                <Link to='/' className='font-bold text-2xl text-[#2a2a2e]'>Khana<span className='text-[#ffa200]'>Pina</span></Link>
             </div>
             <div>
                 <div className='md:hidden' onClick={() => setMenuOpen(!menuOpen)}>
@@ -30,7 +30,11 @@ const Header = () => {
                     <NavLink to='/blog' className={({ isActive }) => isActive ? "text-[#ffa200]" : "" + `hover:text-[#ffa200]`}>Blog</NavLink>
                     {/* <NavLink to='/login' className={({ isActive }) => isActive ? "text-[#ffa200]" : "" + `hover:text-[#ffa200]`}>Login</NavLink> */}
                     {
-                        user ? <img className='w-8 h-8 object-cover rounded-full cursor-pointer' title={user.displayName} src={user.photoURL || 'https://media.licdn.com/dms/image/C5603AQEyNKnirxXA5w/profile-displayphoto-shrink_800_800/0/1632428106559?e=2147483647&v=beta&t=C2zGNkOkQTs6_ZkL3Sq22-KELUUGw9N9FlLSObMPfos'} alt="" /> : <NavLink to='/login' className={({ isActive }) => isActive ? "text-[#ffa200]" : "" + `hover:text-[#ffa200]`}>Login</NavLink>
+                        user ? <img className='w-8 h-8 object-cover rounded-full cursor-pointer' title={user.displayName} src={user.photoURL || 'https://media.licdn.com/dms/image/C5603AQEyNKnirxXA5w/profile-displayphoto-shrink_800_800/0/1632428106559?e=2147483647&v=beta&t=C2zGNkOkQTs6_ZkL3Sq22-KELUUGw9N9FlLSObMPfos'} alt="" />
+                            : <>
+                                <NavLink to='/login' className={({ isActive }) => isActive ? "text-[#ffa200]" : "" + `hover:text-[#ffa200]`}>Login</NavLink>
+                                <NavLink to='/register' className={({ isActive }) => isActive ? "text-[#ffa200]" : "" + `hover:text-[#ffa200]`}>Register</NavLink>
+                            </>
                     }
                     {
                         user && <button onClick={handleLogOut}>Logout</button>
