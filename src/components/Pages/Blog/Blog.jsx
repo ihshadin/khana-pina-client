@@ -1,9 +1,23 @@
 import React from 'react';
+import ReactToPdf from 'react-to-pdf'
 
 const Blog = () => {
+    // react to PDF
+    const ref = React.createRef();
+    const options = {
+        orientation: 'landscape',
+        unit: 'in',
+        format: [10, 10]
+    };
+
     return (
-        <section className='py-12'>
+        <section className='py-12' ref={ref}>
             <div className='px-3 xl:px-0 xl:container mx-auto relative'>
+                <ReactToPdf targetRef={ref} filename="chef-recipes.pdf" options={options} x={.5} y={.5} scale={0.8}>
+                    {({ toPdf }) => (
+                        <button className='bg-[#ffa200] py-2 px-5 rounded-full font-semibold text-white mb-8 mx-auto block' onClick={toPdf}>Generate pdf</button>
+                    )}
+                </ReactToPdf>
                 <div className='bg-slate-100 rounded-2xl py-8 px-6 mb-4'>
                     <h4 className='text-xl font-semibold text-[#ffa200]'>I. Tell us the differences between uncontrolled and controlled components.</h4>
                     <p>

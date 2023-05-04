@@ -1,5 +1,6 @@
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Link } from 'react-router-dom';
 
 const ChefsCard = ({ chef }) => {
@@ -11,6 +12,7 @@ const ChefsCard = ({ chef }) => {
                 src={chef_picture}
                 className='rounded-lg w-full h-64 object-cover'
                 effect='blur'
+                width={'100%'}
             />
             {/* <img className='rounded-lg w-full h-64 object-cover' src={chef_picture} alt="" /> */}
             <div className='p-4'>

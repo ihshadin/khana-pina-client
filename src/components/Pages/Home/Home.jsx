@@ -71,7 +71,7 @@ const Home = () => {
             <section className='py-12'>
                 <div className='px-3 xl:px-0 xl:container mx-auto grid md:grid-cols-2 items-center'>
                     <div>
-                        <img className='w-full' src="https://thumbs.dreamstime.com/b/contact-us-23141986.jpg" alt="" />
+                        <img className='w-full -scale-x-100' src="https://unblast.com/wp-content/uploads/2020/09/Contact-Us-Vector-Illustration-Part-02-1.jpg" alt="" />
                     </div>
                     <div>
                         <div className='mb-3'>

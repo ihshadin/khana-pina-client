@@ -17,36 +17,39 @@ const ChefRecipes = () => {
 
     return (
         <>
-            {/* Chef Banner section */}
-            <section className='py-12'>
-                <div className='px-3 xl:px-0 xl:container mx-auto md:flex gap-6 items-center justify-center'>
-                    {/* <LazyLoadImage
+            <div>
+                {/* Chef Banner section */}
+                <section className='py-12'>
+                    <div className='px-3 xl:px-0 xl:container mx-auto md:flex gap-6 items-center justify-center relative'>
+
+                        {/* <LazyLoadImage
                         src={chef_picture}
                         className='w-64 h-64 object-cover rounded-full flex-shrink-0'
                         effect='blur'
                     /> */}
-                    <img className='w-64 h-64 object-cover rounded-full flex-shrink-0' src={chef_picture} alt="" />
-                    <div className='mt-8 md:mt-0'>
-                        <h2 className='text-4xl font-semibold'>{chef_name}</h2>
-                        <p className='text-zinc-500 mt-1'>{description}</p>
-                        <p className='text-zinc-500 mt-5'><span className='font-semibold text-[#ffa200]'>{years_of_experience}</span> Years of experience</p>
-                        <p className='text-zinc-500 mt-1'><span className='font-semibold text-[#ffa200]'>{likes}</span> Likes</p>
-                        <p className='text-zinc-500 mt-1'><span className='font-semibold text-[#ffa200]'>{recipes.length}</span> Recipes</p>
+                        <img className='w-64 h-64 object-cover rounded-full flex-shrink-0' src={chef_picture} alt="" />
+                        <div className='mt-8 md:mt-0'>
+                            <h2 className='text-4xl font-semibold'>{chef_name}</h2>
+                            <p className='text-zinc-500 mt-1'>{description}</p>
+                            <p className='text-zinc-500 mt-5'><span className='font-semibold text-[#ffa200]'>{years_of_experience}</span> Years of experience</p>
+                            <p className='text-zinc-500 mt-1'><span className='font-semibold text-[#ffa200]'>{likes}</span> Likes</p>
+                            <p className='text-zinc-500 mt-1'><span className='font-semibold text-[#ffa200]'>{recipes.length}</span> Recipes</p>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Chef recipes section area */}
-            <section className='py-12'>
-                <div className='px-3 xl:px-0 xl:container mx-auto'>
-                    <h2 className='mb-7 text-3xl font-bold text-center'>Recipes</h2>
-                    <div className='grid md:grid-cols-3 gap-7'>
-                        {
-                            recipes.map((recipe, i) => <RecipeCard key={i} recipe={recipe} />)
-                        }
+                {/* Chef recipes section area */}
+                <section className='py-12'>
+                    <div className='px-3 xl:px-0 xl:container mx-auto'>
+                        <h2 className='mb-7 text-3xl font-bold text-center'>Recipes</h2>
+                        <div className='grid md:grid-cols-3 gap-7'>
+                            {
+                                recipes.map((recipe, i) => <RecipeCard key={i} recipe={recipe} />)
+                            }
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </>
     );
 };
