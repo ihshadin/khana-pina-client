@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import RecipeCard from './RecipeCard';
 import { AuthContext } from '../../providers/AuthProvider';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 
 const ChefRecipes = () => {
@@ -22,12 +23,12 @@ const ChefRecipes = () => {
                 <section className='py-12'>
                     <div className='px-3 xl:px-0 xl:container mx-auto md:flex gap-6 items-center justify-center relative'>
 
-                        {/* <LazyLoadImage
-                        src={chef_picture}
-                        className='w-64 h-64 object-cover rounded-full flex-shrink-0'
-                        effect='blur'
-                    /> */}
-                        <img className='w-64 h-64 object-cover rounded-full flex-shrink-0' src={chef_picture} alt="" />
+                        <LazyLoadImage
+                            src={chef_picture}
+                            className='min-w-[256px] h-64 object-cover rounded-[50%] flex-shrink-0'
+                            effect='blur'
+                        />
+                        {/* <img className='w-64 h-64 object-cover rounded-full flex-shrink-0' src={chef_picture} alt="" /> */}
                         <div className='mt-8 md:mt-0'>
                             <h2 className='text-4xl font-semibold'>{chef_name}</h2>
                             <p className='text-zinc-500 mt-1'>{description}</p>
