@@ -13,7 +13,7 @@ const Header = () => {
     }
 
     return (
-        <header className='flex items-center justify-between py-5 px-3 xl:px-0 xl:container mx-auto relative '>
+        <header className='flex items-center justify-between py-5 px-3 xl:px-0 xl:container mx-auto relative'>
             <div>
                 {/* <img className='w-36' src={logo} alt="" /> */}
                 <h1 className='font-bold text-2xl text-[#2a2a2e]'>Khana<span className='text-[#ffa200]'>Pina</span></h1>

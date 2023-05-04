@@ -6,4 +6,6 @@
 - and you also which chef how much years experiance.
 - and you favorite which recipes you like
 
-# Live link: https://khana-pina-f3af2.web.app/chef-recipes/202305
+* Live link: https://khana-pina-f3af2.web.app/
+
+* Live Link 2: https://khana-pina-f3af2.firebaseapp.com/

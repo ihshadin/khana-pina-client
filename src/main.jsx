@@ -11,6 +11,7 @@ import Register from './components/Pages/Login/register'
 import ChefRecipes from './components/Pages/ChefRecipes/ChefRecipes'
 import '@smastrom/react-rating/style.css'
 import { Toaster } from 'react-hot-toast'
+import Blog from './components/Pages/Blog/Blog'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />
+      },
+      {
+        path: 'blog',
+        element: <Blog />,
       },
       {
         path: 'login',
