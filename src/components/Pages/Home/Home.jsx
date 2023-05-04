@@ -6,6 +6,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Home = () => {
     const { chefs, loading } = useContext(AuthContext);
+    // const chefs = useLoaderData();
 
     return (
         <>
@@ -23,7 +24,7 @@ const Home = () => {
                 <div className='px-3 xl:px-0 xl:container mx-auto relative'>
                     <h2 className='mb-7 text-3xl font-bold text-center'>Chefs in Khanapina</h2>
                     {
-                        !loading ?
+                        loading ?
                             <div className="radial-progress bg-primary text-primary-content border-4 border-primary absolute start-1/2 -translate-x-1/2" style={{ "--value": 70 }}>70%</div>
                             : <div className='grid md:grid-cols-3 gap-6'>
                                 {

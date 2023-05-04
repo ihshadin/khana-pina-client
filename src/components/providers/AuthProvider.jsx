@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
 
     // Create User
     const createUser = (email, password) => {
-        setLoading(true);
+        // setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
     // Login user with email&password
@@ -43,7 +43,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, loggedUser => {
             setUser(loggedUser);
-            // setLoading(false);
+            setLoading(false);
         })
 
         return () => {
@@ -52,15 +52,13 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        setLoading(false);
         fetch('https://khana-pina-server-ihshadin.vercel.app/chefs')
             .then(res => res.json())
             .then(data => {
+                console.log('object', data);
                 setChefs(data);
-                setLoading(true);
             })
             .catch(error => {
-                setLoading(true)
                 console.error(error);
             })
     }, [])
@@ -70,7 +68,8 @@ const AuthProvider = ({ children }) => {
         loading,
         chefs,
         setUser,
-        setUser,
+        setChefs,
+        setLoading,
         createUser,
         signIn,
         logOut,

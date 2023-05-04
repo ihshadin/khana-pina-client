@@ -3,7 +3,7 @@ import googleLogin from '../../../assets/images/google-btn.png';
 import githubLogin from '../../../assets/images/github-btn.png';
 import { AuthContext } from '../../providers/AuthProvider';
 
-const LoginWithSocial = () => {
+const LoginWithSocial = ({ redirectNavigate }) => {
     const { signInWithGoogle, signInWithGithub } = useContext(AuthContext);
 
     const handleSignInWithGoogle = () => {
@@ -11,6 +11,7 @@ const LoginWithSocial = () => {
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser);
+                redirectNavigate()
             })
             .catch(error => {
                 console.log(error?.message);
@@ -22,6 +23,7 @@ const LoginWithSocial = () => {
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser);
+                redirectNavigate()
             })
             .catch(error => {
                 console.log(error?.message);

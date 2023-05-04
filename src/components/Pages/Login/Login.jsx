@@ -11,7 +11,8 @@ const Login = () => {
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location?.state?.from?.pathname || '/category/0';
+    console.log(location);
+    const from = location?.state?.from?.pathname || '/';
 
     const handleLogin = event => {
         event.preventDefault();
@@ -27,12 +28,15 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 setSuccess('You are successfully loggedin');
-                navigate(from, { replace: true })
+                redirectNavigate();
             })
             .catch(error => {
                 console.log(error);
                 setError("Email or password doesn't match.")
             })
+    }
+    const redirectNavigate = () => {
+        navigate(from, { replace: true })
     }
 
     return (
@@ -54,7 +58,7 @@ const Login = () => {
                 <div className="flex flex-col w-full">
                     <div className="divider"> OR </div>
                 </div>
-                <LoginWithSocial />
+                <LoginWithSocial redirectNavigate={redirectNavigate} />
             </form>
         </div>
     );

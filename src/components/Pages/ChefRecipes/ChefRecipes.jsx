@@ -10,7 +10,7 @@ const ChefRecipes = () => {
 
     const { chef_picture, chef_name, description, likes, recipes, years_of_experience } = chef;
 
-    if (!loading) {
+    if (loading) {
         return <div className="radial-progress bg-primary text-primary-content border-4 border-primary absolute start-1/2 -translate-x-1/2" style={{ "--value": 70 }}>70%</div>;
     }
 

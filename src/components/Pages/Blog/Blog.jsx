@@ -27,7 +27,7 @@ const Blog = () => {
                 </div>
                 <div className='bg-slate-100 rounded-2xl py-8 px-6 mb-4'>
                     <h4 className='text-xl font-semibold text-[#ffa200]'>IV. What is a custom hook, and why will you create a custom hook?</h4>
-                    <p>
+                    <div>
                         A custom hook in React is a JavaScript function that starts with the prefix "use"<br />
                         <ul className='list-disc ps-8'>
                             <li>To share logic between components without repeating code</li>
@@ -35,7 +35,7 @@ const Blog = () => {
                             <li>To encapsulate complex or reusable behavior in a simple function that can be reused in different contexts</li>
                             <li>To abstract away implementation details and make code more readable and easier to maintain.</li>
                         </ul>
-                    </p>
+                    </div>
                 </div>
             </div>
         </section>
